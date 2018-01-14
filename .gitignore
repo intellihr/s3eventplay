@@ -1,4 +1,5 @@
 .env
 TODO
-vendor
+/vendor
 /s3eventplay
+/dist
