@@ -157,5 +157,4 @@ func PlayEvents(params Params) {
 				panic(err)
 			}
 		}, params.BatchSize)
-	fmt.Println("done")
 }
