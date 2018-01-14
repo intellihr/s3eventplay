@@ -85,7 +85,7 @@ func processEventsString(content string) (err error) {
 			err = fmt.Errorf("error decoding: %s", event)
 			break
 		}
-		fmt.Printf("%q\n", data)
+		fmt.Printf("%s\n", data)
 	}
 	return err
 }

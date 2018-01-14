@@ -1,0 +1,8 @@
+build:
+  main: ./cmd/s3eventplay/main.go
+  binary: s3eventplay
+  goos:
+    - darwin
+    - linux
+  goarch:
+    - amd64

@@ -5,5 +5,6 @@ RUN curl -fsSL -o /usr/local/bin/dep https://github.com/golang/dep/releases/down
 RUN mkdir -p /go/src/github.com/intellihr/s3eventplay
 WORKDIR /go/src/github.com/intellihr/s3eventplay
 
-COPY Gopkg.toml Gopkg.lock ./
-RUN dep ensure -vendor-only
+COPY Makefile Gopkg.toml Gopkg.lock ./
+RUN dep ensure -vendor-only && \
+    make setup

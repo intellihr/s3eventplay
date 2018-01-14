@@ -7,10 +7,12 @@ import (
 	"github.com/intellihr/s3eventplay"
 )
 
+var version = "master"
+
 func main() {
 	app := cli.NewApp()
 	app.Name = "s3eventplay"
-	app.Version = "master"
+	app.Version = version
 	app.Author = "Soloman Weng (soloman1124@gmail.com)"
 	app.Usage = "This tool plays json events from s3 bucket"
 	app.Flags = []cli.Flag {
