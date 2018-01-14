@@ -6,5 +6,4 @@ RUN mkdir -p /go/src/github.com/intellihr/s3eventplay
 WORKDIR /go/src/github.com/intellihr/s3eventplay
 
 COPY Makefile Gopkg.toml Gopkg.lock ./
-RUN dep ensure -vendor-only && \
-    make setup
+RUN make setup
