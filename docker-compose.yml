@@ -1,7 +1,13 @@
 version: "3"
 services:
-  app:
-    build: .
+  dev:
+    build:
+      context: .
+      dockerfile: Dockerfile.build
+    image: intellihr/s3eventplay:onbuild
     env_file: .env
     volumes:
       - .:/go/src/github.com/intellihr/s3eventplay
+  app:
+    build: .
+    image: intellihr/s3eventplay:latest

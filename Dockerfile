@@ -1,9 +1,11 @@
-FROM golang:1.9.2 AS builder
+# build stage
+FROM intellihr/s3eventplay:onbuild AS build
+ADD . ./
+RUN make build-alpine
 
-RUN curl -fsSL -o /usr/local/bin/dep https://github.com/golang/dep/releases/download/v0.3.2/dep-linux-amd64 && chmod +x /usr/local/bin/dep
-
-RUN mkdir -p /go/src/github.com/intellihr/s3eventplay
-WORKDIR /go/src/github.com/intellihr/s3eventplay
-
-COPY Makefile Gopkg.toml Gopkg.lock ./
-RUN make setup
+# final stage
+FROM alpine:latest
+WORKDIR /root/
+COPY --from=build /go/src/github.com/intellihr/s3eventplay/s3eventplay .
+ENTRYPOINT ["./s3eventplay"]
+CMD ["help"]
